@@ -1,0 +1,33 @@
+{% extends "admin/admin.layout.twig" %}
+
+{% block content %}
+
+<div class="well well-sm" style="padding: 2px;">
+  <div class='btn btn-group btn-group-sm pull-right btn-group-raised' style="padding: 0px; margin-right: 15px;">
+    <a class="btn btn-info" href="{{ path_for("edit-post", { "type": "new" }) }}">
+      <i class="glyphicon glyphicon-edit" style="font-size: 20px;"></i> New Post
+    </a>
+  </div>
+  <h3 style="padding-left: 15px;font-weight: bold">All Post</h3>
+  <div class="clearfix"></div>
+</div>
+
+<div class="list-group">
+{% for post in posts %}
+  <div class="list-group-item well well-sm" style="background-color: #cfd8dc; margin-bottom: 5px; padding-top: 5px; padding-bottom: 5px;">
+      <div class='btn-group btn-group-sm btn-group-raised' style="margin-right: 10px;">
+        <a class="btn btn-info" href="{{ path_for("edit-post", { "type": "edit", "pid": post.id }) }}">
+          <i class="glyphicon glyphicon-edit" style="font-size: 20px;"></i>
+        </a>
+        <!--
+        <a class="btn btn-danger" href="{{ path_for("edit-post", { "type": "remove", "pid": post.id }) }}">
+          <i class="glyphicon glyphicon-trash" style="font-size: 20px;"></i>
+        </a>
+      -->
+     </div>
+    <h4 style="display: inline; font-weight: bold">{{ post.title | trim }}&nbsp;&nbsp;<small>By, {{ post.author }}</small></h4>
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}

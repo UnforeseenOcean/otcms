@@ -1,0 +1,19 @@
+{% extends "objects/layout.twig" %}
+
+{% block content %}
+
+    {% if not pid %}
+        <ul>
+            {% for artical in posts %}
+                <li>{{ artical.title|e }} - {{ artical.author|e }} - <a href="{{ path_for('post', { 'pid': artical.id }) }}">{{ artical.id }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>{{ posts[0].title }} <small style="font-weight: 100; font-size: small">{{ posts[0].author }}</small></h2>
+        <br />
+        {{ posts[0].time|date("m/d/Y") }}
+        <hr />
+        <div>{{ posts[0].content|raw }}</div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% for link in links %}
+ {% if user.getACL().hasPermission(link.perm) %}
+  <li>
+    <a href="{{ link.url }}">{{ link.text }}</a>
+  </li>
+ {% endif %}
+{% endfor %}
+<li>
+  <a href="/?logout=true">Logout, <strong>{{ user.session.username }}</strong></a>
+</li>

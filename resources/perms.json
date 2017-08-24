@@ -1,0 +1,19 @@
+{
+    "super user": {
+        "su.has.all": "Grants all permissions to a user"
+    },
+    "administration": {
+        "admin.panel.view": "View the admin panel",
+        "admin.panel.modify_post": "Create, modify, edit, and do anything related to post on the site",
+        "admin.panel.modify_user": "Allows a admin or user with this perm to create a new user",
+        "admin.panel.modify_permissions": "Allows a user to modify group and system permissions"
+    },
+    "moderator": {
+        "mod.modify.comment": "Moderate comment section on the site if enabled"
+    },
+    "member": {
+        "member.view.comments": "Let's members view comments",
+        "member.post.comment": "Let's members post comments",
+        "member.modify.comment": "Let's a member modify/edit there own comments"
+    }
+}

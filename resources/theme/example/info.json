@@ -1,0 +1,17 @@
+{
+  "name": "example",
+  "layout_folder": "templates",
+  "javascript": "js",
+  "stylesheet": "css",
+  "images": "images",
+
+  "javascript_files": [
+    "bootbox.min.js",
+    "main.js",
+    "admin.js"
+  ],
+
+  "stylesheet_files": [
+    "style.css"
+  ]
+}

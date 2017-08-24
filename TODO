@@ -1,0 +1,8 @@
+IN PROGRESS:
+Clean up loader.php to be mode modular
+Make it so routes, factories, and controllers can be loaded from JSON
+Change it so the site title and site database config can be loaded from a file locally on the server
+
+FINISHED:
+Basic theme engine with core and manager
+Basic ACL and Account system that can integrate with existing accounts

@@ -1,0 +1,105 @@
+{% extends "admin/admin.layout.twig" %}
+
+{% block content %}
+
+<div class="well well-sm" style="padding: 2px;">
+  <div class='btn btn-group btn-group-md pull-right btn-group-raised' style="padding: 0px; margin-right: 15px;">
+    <a class="btn btn-info" href="{{ path_for("edit-post") }}">
+      Goto All Post
+    </a>
+  </div>
+  <h3 style="padding-left: 15px;">
+    {% if mode == 'edit' %}
+    Editing: <strong>{{ post.title }}</strong>
+    {% else %}
+    Creating new post
+    {% endif %}
+  </h3>
+
+  <div class="clearfix"></div>
+</div>
+
+
+<form id='content-creation' mode='{{ mode }}' action='{{ path_for("edit-post", { 'type': mode }) }}'>
+  <div class="form-group">
+    <label for="postTitle">Post Title</label>
+    <input name='postTitle' type="text" class="form-control" id="postTitle" placeholder="Post Title" value="{{post.title}}">
+  </div>
+  <div class="form-group">
+    <label for="thumbnailURL">Post Summary</label>
+    <input name='postSummary' type="text" class="form-control" id="postSummary" placeholder="Summary of the post" value="{{ post.summary }}">
+  </div>
+  <div class="form-group">
+    <label for="thumbnailURL">Thumbnail URL</label>
+    <input name='thumbnailURL' type="text" class="form-control" id="thumbnailURL" placeholder="Thumbnail URL" value="{{ post.thumbnail }}">
+  </div>
+  <div class="form-group">
+    <div class="togglebutton">
+      <label>
+        <input name="published" value='true' type="checkbox" {% if post.published == 1 %} checked{% endif %}> Publish this Post
+      </label>
+    </div>
+  </div>
+
+  <input name='postID' type='hidden' value='{{ post.id }}' />
+
+  <div id="standalone-container">
+<div id="toolbar-container">
+<span class="ql-formats">
+<select class="ql-font"></select>
+<select class="ql-size"></select>
+</span>
+<span class="ql-formats">
+<button class="ql-bold"></button>
+<button class="ql-italic"></button>
+<button class="ql-underline"></button>
+<button class="ql-strike"></button>
+</span>
+<span class="ql-formats">
+<select class="ql-color"></select>
+<select class="ql-background"></select>
+</span>
+<span class="ql-formats">
+<button class="ql-script" value="sub"></button>
+<button class="ql-script" value="super"></button>
+</span>
+<span class="ql-formats">
+<button class="ql-header" value="1"></button>
+<button class="ql-header" value="2"></button>
+<button class="ql-blockquote"></button>
+<button class="ql-code-block"></button>
+</span>
+<span class="ql-formats">
+<button class="ql-list" value="ordered"></button>
+<button class="ql-list" value="bullet"></button>
+<button class="ql-indent" value="-1"></button>
+<button class="ql-indent" value="+1"></button>
+</span>
+<span class="ql-formats">
+<button class="ql-direction" value="rtl"></button>
+<select class="ql-align"></select>
+</span>
+<span class="ql-formats">
+<button class="ql-link"></button>
+<button class="ql-image"></button>
+<button class="ql-video"></button>
+<button class="ql-formula"></button>
+</span>
+<span class="ql-formats">
+<button class="ql-showHtml">[source]</button>
+</span>
+</div>
+<div id="editor-container">
+  {{ post.content | raw }}
+</div>
+
+<script>
+  var post_text = '{{ post.content }}';
+</script>
+</div>
+  <input type="submit" class="btn btn-default btn-raised" value='Submit'/>
+</form>
+<pre style="white-space: pre; display: none;" name='hidden-debug'>
+{{ json_encode(post, true) | raw }}
+</pre>
+{% endblock %}

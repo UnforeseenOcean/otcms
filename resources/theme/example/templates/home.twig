@@ -1,0 +1,15 @@
+{% extends "objects/layout.twig" %}
+
+{% block content %}
+    <h1>{{ page_title }}</h1>
+
+    {% if user.isLoggedIn() %}
+        <h4>{{ user.getUserID() }}</h4>
+        <h4>{{ user.count }}</h4>
+    {% endif %}
+
+    <p class="important">
+        Welcome {{ page_title }}
+    </p>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "admin/admin.layout.twig" %}
+
+{% block content %}
+{{ pt_text | raw }}
+
+<pre style="white-space: pre">
+{{ json_encode(user.getRawSession(), true) | raw }}
+</pre>
+{% endblock %}

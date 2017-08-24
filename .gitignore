@@ -1,0 +1,7 @@
+
+\.vscode/
+
+/vendor/
+
+core/vendor/
+debug_mode

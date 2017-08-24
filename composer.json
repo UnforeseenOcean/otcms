@@ -1,0 +1,12 @@
+{
+    "name": "overtells/website",
+    "type": "project",
+    "require": {
+        "slim/slim": "^3.0",
+        "slim/twig-view": "^2.2",
+        "joshcam/mysqli-database-class": "dev-master",
+        "hossamyousef/slim3-minify": "^0.0.1",
+        "mibe/feedwriter": "^1.1",
+        "joshtronic/php-loremipsum": "^1.0"
+    }
+}
